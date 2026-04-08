@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Herramienta de Campo</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0f1117">
@@ -130,13 +130,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 .map-area{position:relative;flex:1;min-height:0;display:flex;flex-direction:column;}
 #map{width:100%;flex:1;min-height:0;}
 /* GPS */
-.gps-btn{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:20;padding:9px 18px;border-radius:30px;border:none;font-family:'Syne',sans-serif;font-weight:700;font-size:0.75rem;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 3px 14px rgba(0,0,0,0.4);transition:all .2s;white-space:nowrap;}
+.gps-btn{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:30;padding:9px 18px;border-radius:30px;border:none;font-family:'Syne',sans-serif;font-weight:700;font-size:0.75rem;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 3px 14px rgba(0,0,0,0.4);transition:all .2s;white-space:nowrap;}
 .gps-btn.idle{background:#1a1d27;color:#7b82a0;border:1px solid #2e3347;}
 .gps-btn.idle:hover{background:#232736;color:var(--text);}
 .gps-btn.tracking{background:var(--blue);color:#0f1117;}
 .gps-btn.searching{background:var(--yellow-l);color:var(--yellow);border:1px solid var(--yellow)44;animation:pulse-btn .8s ease-in-out infinite alternate;}
 @keyframes pulse-btn{from{opacity:.7}to{opacity:1}}
-.gps-panel{position:absolute;bottom:65px;left:50%;transform:translateX(-50%);z-index:20;background:rgba(15,17,23,0.96);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:14px;padding:12px 16px;min-width:260px;max-width:320px;display:none;box-shadow:0 4px 20px rgba(0,0,0,0.5);}
+.gps-panel{position:absolute;bottom:65px;left:50%;transform:translateX(-50%);z-index:30;background:rgba(15,17,23,0.96);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:14px;padding:12px 16px;min-width:260px;max-width:320px;display:none;box-shadow:0 4px 20px rgba(0,0,0,0.5);}
 .gps-panel.show{display:block;}
 .gps-panel-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
 .gps-row{display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:4px;}
@@ -150,11 +150,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 .gps-nearest-dist{font-size:0.64rem;color:var(--muted);margin-top:2px;}
 .gps-error{font-size:0.72rem;color:var(--pink);margin-top:6px;}
 /* MAP ACTION BUTTONS (rotate, center) */
-.map-actions{position:absolute;bottom:70px;right:10px;z-index:20;display:flex;flex-direction:column;gap:6px;align-items:center;}
+.map-actions{position:absolute;bottom:70px;right:10px;z-index:30;display:flex;flex-direction:column;gap:6px;align-items:center;}
 .map-action-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:rgba(15,17,23,0.92);backdrop-filter:blur(8px);color:var(--text);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.4);transition:all .15s;}
 .map-action-btn:hover{background:var(--surface2);border-color:var(--blue);}
 .rotation-display{font-family:'Syne',sans-serif;font-weight:700;font-size:0.62rem;color:var(--muted);background:rgba(15,17,23,0.85);padding:2px 6px;border-radius:6px;border:1px solid var(--border);}
-.map-overlay{position:absolute;top:10px;right:10px;z-index:10;}
+.map-overlay{position:absolute;top:10px;right:10px;z-index:30;}
 .legend-card{background:rgba(15,17,23,0.93);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:10px;padding:9px 12px;min-width:195px;}
 .legend-title{font-family:'Syne',sans-serif;font-size:0.63rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;}
 .legend-item{display:flex;align-items:center;gap:6px;font-size:0.68rem;padding:2px 0;cursor:pointer;}
@@ -231,11 +231,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 ══════════════════════════════════════════════ */
 @media (max-width:700px){
 
-  /* Hide desktop navbar, show mobile bottom nav */
   .navbar { display:none; }
   .desktop-only { display:none !important; }
 
-  /* Bottom navigation bar */
   .mobile-nav {
     display:flex;
     position:fixed; bottom:0; left:0; right:0;
@@ -254,7 +252,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 
   body { overflow:hidden; }
 
-  /* ── RUTAS PAGE: strict column layout ── */
   #page-rutas {
     display:block !important;
     height:calc(100vh - 56px);
@@ -266,7 +263,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     overflow:hidden;
   }
 
-  /* Stats header — compact */
   .rutas-header {
     flex-shrink:0;
     padding:6px 10px; gap:5px; flex-wrap:nowrap;
@@ -279,11 +275,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
   .progress-pct { font-size:0.6rem; min-width:22px; }
   .view-btn { padding:3px 6px; font-size:0.56rem; }
 
-  /* rutas-main: map only, fills space between header and toolbar */
   .rutas-main {
     display:block !important;
     position:relative;
-    /* 56 = bottom nav, 44 = stats header, 62 = toolbar */
     height:calc(100vh - 56px - 44px - 62px);
     overflow:hidden;
     flex-shrink:0;
@@ -297,17 +291,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
   }
   #map { width:100% !important; height:100% !important; flex:none !important; }
 
-  /* ════════════════════════════════════════
-     MOBILE MAP TOOLBAR — fixed bar above bottom nav
-     ALWAYS on top, NEVER covered by map
-  ════════════════════════════════════════ */
   .mobile-map-toolbar {
     flex-shrink:0;
     background:var(--surface);
     border-top:1px solid var(--border);
-    padding:6px 8px 6px;
+    padding:6px 8px;
     display:flex; flex-direction:column; gap:5px;
-    z-index:500;
+    position:relative;
+    z-index:200;  /* Asegura que esté por encima del mapa */
   }
 
   .toolbar-gps-info {
@@ -340,17 +331,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
   .toolbar-btn.gps-main.tracking { background:var(--blue); color:#0f1117; }
   .toolbar-btn.gps-main.searching { background:var(--yellow-l); color:var(--yellow); border-color:var(--yellow)44; }
 
-  /* GPS panel floats above toolbar when visible */
   .gps-panel {
     position:fixed;
-    bottom:calc(56px + 70px); /* above bottom nav + toolbar */
+    bottom:calc(56px + 70px);
     left:50%; transform:translateX(-50%);
     z-index:600;
     min-width:260px; max-width:90vw;
   }
 
-  /* Legend stays top-right of map — increase z-index */
-  .map-overlay { top:8px; right:8px; z-index:400; }
+  .map-overlay { top:8px; right:8px; z-index:30; }
   .legend-card {
     min-width:140px; padding:6px 9px;
     background:rgba(15,17,23,0.95);
@@ -360,8 +349,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
   .day-badge { font-size:0.46rem; }
   .legend-progress-label { font-size:0.54rem; }
 
-  /* ── BOTTOM SHEET ── */
-  .sheet-toggle-btn { display:none; } /* replaced by toolbar button */
+  /* BOTTOM SHEET (solo para lista, sin panel de agregar) */
+  .sheet-toggle-btn { display:none; }
 
   .sheet-backdrop {
     display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5);
@@ -371,7 +360,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
 
   .bottom-sheet {
     position:fixed; left:0; right:0;
-    bottom:calc(56px + 62px); /* above bottom nav + toolbar */
+    bottom:calc(56px + 62px);
     z-index:800;
     background:var(--surface); border-top:1px solid var(--border);
     border-radius:20px 20px 0 0;
@@ -400,13 +389,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
   .sheet-content::-webkit-scrollbar { width:3px; }
   .sheet-content::-webkit-scrollbar-thumb { background:var(--border); border-radius:2px; }
 
-  /* Bigger touch targets */
+  /* Touch targets */
   .block-row { padding:10px 10px; min-height:48px; }
   .block-loc { font-size:0.78rem; }
   .block-actions { opacity:1; }
   .action-btn { padding:6px 8px; font-size:0.75rem; }
 
-  /* ── ESTAB PAGE MOBILE ── */
+  /* ESTAB PAGE MOBILE */
   #page-estab {
     height:calc(100vh - 56px);
     overflow-y:auto;
@@ -452,7 +441,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
   </button>
 </nav>
 
-<!-- ── BOTTOM SHEET (sidebar mobile) ── -->
+<!-- ── BOTTOM SHEET (solo para lista, sin agregar) ── -->
 <div class="sheet-backdrop" id="sheet-backdrop" onclick="closeSheet()"></div>
 <div class="bottom-sheet" id="bottom-sheet">
   <div class="sheet-handle-bar"></div>
@@ -494,11 +483,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     <div class="sidebar" id="sidebar"></div>
     <div class="map-area">
       <div id="map"></div>
-      <!-- Legend overlay — desktop only visible here, mobile moved to toolbar -->
+      <!-- Legend overlay desktop -->
       <div class="map-overlay desktop-only">
         <div class="legend-card" id="legend"><div class="legend-title">Zonas — clic para centrar</div></div>
       </div>
-      <!-- GPS PANEL — floats above map on desktop -->
+      <!-- GPS PANEL -->
       <div class="gps-panel" id="gps-panel">
         <div class="gps-panel-title">📍 Mi ubicación actual</div>
         <div class="gps-row"><span class="gps-label">Latitud</span><span class="gps-val" id="gps-lat">—</span></div>
@@ -511,7 +500,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
         </div>
         <div class="gps-error" id="gps-error" style="display:none"></div>
       </div>
-      <!-- Desktop GPS + action buttons (inside map area on desktop) -->
+      <!-- Desktop GPS button + actions -->
       <button class="gps-btn idle desktop-only" id="gps-btn-desk" onclick="toggleGPS()">
         <span id="gps-btn-icon-desk">📍</span>
         <span id="gps-btn-text-desk">Activar mi ubicación</span>
@@ -525,14 +514,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     </div>
   </div>
 
-  <!-- ═══ MOBILE MAP TOOLBAR — always visible, never inside map ═══ -->
+  <!-- MOBILE MAP TOOLBAR (sin panel de agregar) -->
   <div class="mobile-map-toolbar" id="mobile-toolbar">
-    <!-- Row 1: GPS status info (hidden until GPS active) -->
     <div class="toolbar-gps-info" id="toolbar-gps-info">
       <span id="toolbar-gps-acc">Buscando señal...</span>
       <span id="toolbar-nearest" style="display:none"></span>
     </div>
-    <!-- Row 2: action buttons -->
     <div class="toolbar-buttons">
       <button class="toolbar-btn gps-main" id="gps-btn" onclick="toggleGPS()">
         <span id="gps-btn-icon">📍</span>
@@ -565,14 +552,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     <p>Busca el tipo de establecimiento y consulta qué acción tomar en campo</p>
   </div>
 
-  <!-- SEARCH -->
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
     <input class="search-input" id="search-input" type="text" placeholder="Buscar establecimiento... ej: tortillería, bar, farmacia" oninput="filterEstab()">
     <span class="search-clear" id="search-clear" onclick="clearSearch()">✕ limpiar</span>
   </div>
 
-  <!-- QUICK DECISION TOOL -->
   <div class="decision-tool">
     <div class="decision-tool-title">⚡ Herramienta rápida de decisión</div>
     <div class="decision-steps" id="decision-steps">
@@ -594,7 +579,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     </div>
   </div>
 
-  <!-- CATEGORY FILTERS -->
   <div class="cat-filters">
     <button class="cat-btn active" onclick="filterCat('all',this)">Todos</button>
     <button class="cat-btn" onclick="filterCat('off',this)">🛒 Off Premise</button>
@@ -604,10 +588,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     <button class="cat-btn" onclick="filterCat('excluir',this)">❌ Siempre excluir</button>
   </div>
 
-  <!-- NO RESULTS -->
   <div class="no-results" id="no-results">No se encontraron establecimientos. Intenta con otra palabra.</div>
 
-  <!-- OFF PREMISE -->
   <div class="estab-section" id="sec-off">
     <div class="section-title" style="color:var(--blue)">
       🛒 Off Premise
@@ -616,7 +598,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     <div class="estab-grid" id="grid-off"></div>
   </div>
 
-  <!-- ON PREMISE -->
   <div class="estab-section" id="sec-on">
     <div class="section-title" style="color:var(--pink)">
       🍽️ On Premise
@@ -626,7 +607,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     <div class="estab-grid" id="grid-on"></div>
   </div>
 
-  <!-- OTROS -->
   <div class="estab-section" id="sec-otros">
     <div class="section-title" style="color:var(--yellow)">
       📦 Otros
@@ -715,7 +695,6 @@ function pillText(accion) {
 }
 
 function buildEstabGrids() {
-  // OFF PREMISE
   const gOff = document.getElementById('grid-off');
   ESTAB_OFF.forEach(name => {
     const card = document.createElement('div');
@@ -731,7 +710,6 @@ function buildEstabGrids() {
     gOff.appendChild(card);
   });
 
-  // ON PREMISE
   const gOn = document.getElementById('grid-on');
   ESTAB_ON.forEach(name => {
     const card = document.createElement('div');
@@ -748,7 +726,6 @@ function buildEstabGrids() {
     gOn.appendChild(card);
   });
 
-  // OTROS
   const gOtros = document.getElementById('grid-otros');
   ESTAB_OTROS.forEach(e => {
     const card = document.createElement('div');
@@ -771,7 +748,6 @@ function buildEstabGrids() {
   });
 }
 
-// ── FILTER BY SEARCH ──────────────────────────────
 let activeCat = 'all';
 
 function filterEstab() {
@@ -804,9 +780,7 @@ function clearSearch() {
   filterEstab();
 }
 
-// ── ESTAB DETAIL (inline highlight) ──────────────
 function showEstabDetail(name, cat, data) {
-  // Just scroll to card and briefly highlight
   const cards = document.querySelectorAll('.estab-card');
   cards.forEach(c => {
     if (c.dataset.name === name.toLowerCase()) {
@@ -818,7 +792,6 @@ function showEstabDetail(name, cat, data) {
   });
 }
 
-// ── DECISION TOOL ─────────────────────────────────
 let decType = null;
 
 function selectDecType(type, label) {
@@ -827,7 +800,6 @@ function selectDecType(type, label) {
   event.target.classList.add('selected');
 
   if (type === 'on') {
-    // Always censo
     const res = document.getElementById('dec-result');
     res.className = 'decision-result censo';
     res.innerHTML = '✅ REALIZAR EL CENSO<br><span style="font-size:0.7rem;font-weight:400">Los establecimientos On Premise siempre requieren censo, sin importar si venden categorías NIQ.</span>';
@@ -871,19 +843,25 @@ function resetDecision() {
 }
 
 // ══════════════════════════════════════════════════
-// NAVIGATION
+// NAVIGATION (CORREGIDA: detiene GPS al salir de rutas)
 // ══════════════════════════════════════════════════
 function showPage(page) {
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.mobile-nav-btn').forEach(t=>t.classList.remove('active'));
-  document.getElementById('page-'+page).classList.add('active');
-  document.querySelectorAll('.nav-tab').forEach(t=>{
-    if(t.textContent.toLowerCase().includes(page==='rutas'?'rut':'estab')) t.classList.add('active');
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.mobile-nav-btn').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(t => {
+    if (t.textContent.toLowerCase().includes(page === 'rutas' ? 'rut' : 'estab')) t.classList.add('active');
   });
-  const mBtn=document.getElementById('mnav-'+page);
-  if(mBtn) mBtn.classList.add('active');
-  if(page==='rutas') setTimeout(()=>map.invalidateSize(),50);
+  const mBtn = document.getElementById('mnav-' + page);
+  if (mBtn) mBtn.classList.add('active');
+
+  // 🛑 DETENER GPS SI NO ESTAMOS EN RUTAS
+  if (page !== 'rutas' && typeof gpsActive !== 'undefined' && gpsActive) {
+    stopGPS();
+  }
+
+  if (page === 'rutas') setTimeout(() => map.invalidateSize(), 50);
   closeSheet();
 }
 
@@ -942,7 +920,6 @@ let ZONES = [
   }
 ];
 
-// ── PERSIST ───────────────────────────────────────
 const STORAGE_KEY = 'rutas_campo_v1';
 let doneSet = new Set();
 let currentView = 'all';
@@ -971,7 +948,7 @@ function resetProgress() {
   doneSet.clear(); saveProgress(); rebuildMarkers(); renderAll();
 }
 
-// ── MAP ───────────────────────────────────────────
+// MAP
 const map = L.map('map',{zoomControl:true}).setView([19.555,-96.91],12);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap © CartoDB',maxZoom:19}).addTo(map);
 const markerMap={};
@@ -993,7 +970,6 @@ function updateMarker(zone,block){
   if(markerMap[block.id]){map.removeLayer(markerMap[block.id]);delete markerMap[block.id];}
   addMarker(zone,block);
 }
-function removeMarker(id){if(markerMap[id]){map.removeLayer(markerMap[id]);delete markerMap[id];}}
 function rebuildMarkers(){Object.keys(markerMap).forEach(id=>{map.removeLayer(markerMap[id]);delete markerMap[id];});ZONES.forEach(z=>z.blocks.forEach(b=>addMarker(z,b)));}
 function focusZone(zoneId){const z=ZONES.find(z=>z.id===zoneId);if(!z||!z.blocks.length)return;map.fitBounds(L.latLngBounds(z.blocks.map(b=>[b.lat,b.lng])).pad(0.15));}
 
@@ -1074,16 +1050,41 @@ function parsePaste(text){
   return results;
 }
 
-function previewPaste(){ previewPasteInto(''); }
-function addParsedBlocks(){ addParsedBlocksFrom(''); }
+function previewPaste(){
+  const textEl=document.getElementById('paste-area');
+  const text=textEl?.value||'';
+  parsedRows=parsePaste(text);
+  const preview=document.getElementById('parse-preview');
+  preview.innerHTML='';preview.classList.add('show');
+  if(!parsedRows.length){preview.innerHTML=`<div class="preview-row err"><span>⚠️</span><span style="flex:1">Sin datos válidos</span></div>`;return;}
+  parsedRows.forEach(r=>{
+    const row=document.createElement('div');row.className=`preview-row ${r.ok?'ok':'err'}`;
+    if(r.ok){const zN=r.suggestedZone?r.suggestedZone.name.split('·')[0].trim():'🆕 Nueva zona',zC=r.suggestedZone?.color||'#c77dff';row.innerHTML=`<span>✅</span><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.id.slice(-8)} · ${r.loc}</span><span class="preview-zone" style="color:${zC}">${zN}</span>`;}
+    else{row.innerHTML=`<span>❌</span><span style="flex:1;color:var(--muted)">${r.msg}</span>`;}
+    preview.appendChild(row);
+  });
+}
+function addParsedBlocks(){
+  if(!parsedRows.length){previewPaste();return;}
+  const good=parsedRows.filter(r=>r.ok);
+  if(!good.length){showResult('No hay bloques válidos','error');return;}
+  good.forEach(r=>{
+    let zone=r.suggestedZone;
+    if(!zone){const letter=nextLetter(),dayNum=nextDay(),pal=PALETTE[ZONES.length%PALETTE.length];zone={id:ZONES.length,name:`Zona ${letter} · ${r.loc}`,shortName:`Z${letter}`,color:pal.color,colorLight:pal.light,day:`Día ${dayNum}`,tip:`Zona nueva`,blocks:[]};ZONES.push(zone);}
+    const block={id:r.id,short:nextShort(zone),lat:r.lat,lng:r.lng,loc:r.loc,type:r.type,order:zone.blocks.length+1};
+    zone.blocks.push(block);addMarker(zone,block);
+  });
+  parsedRows=[];
+  const ta=document.getElementById('paste-area');if(ta)ta.value='';
+  const pr=document.getElementById('parse-preview');if(pr)pr.classList.remove('show');
+  showResult(`✅ ${good.length} bloque(s) agregado(s)`,'success');saveProgress();renderAll();
+}
 
 function showResult(msg,type){
-  // Show in whichever add-result is visible
-  ['add-result','add-result-sheet'].forEach(id=>{
-    const el=document.getElementById(id);if(!el)return;
-    el.textContent=msg;el.className=`add-result ${type}`;
-    setTimeout(()=>el.className='add-result',4000);
-  });
+  const el=document.getElementById('add-result');
+  if(!el)return;
+  el.textContent=msg;el.className=`add-result ${type}`;
+  setTimeout(()=>el.className='add-result',4000);
 }
 
 function deleteBlock(blockId,zoneId){
@@ -1096,48 +1097,42 @@ function deleteBlock(blockId,zoneId){
 
 function renderAll(){
   updateStats();renderLegend();renderSidebar();
-  // Update sheet button label
   const total=ZONES.reduce((a,z)=>a+z.blocks.length,0),done=doneSet.size;
   const lbl=document.getElementById('sheet-btn-label');
   if(lbl) lbl.textContent=`${done}/${total} bloques`;
-  // If sheet is open, refresh it
   if(document.getElementById('bottom-sheet')?.classList.contains('open')) renderSheetContent();
 }
 
-function buildSidebarDOM(container, idSuffix='') {
+function buildSidebarDOM(container) {
   container.innerHTML='';
-  const pasteId='paste-area'+idSuffix, addBodyId='add-body'+idSuffix, addToggleId='add-toggle'+idSuffix;
-  const pasteVal=document.getElementById('paste-area')?.value||document.getElementById('paste-area'+idSuffix)?.value||'';
-  const panelOpen=false;
-
-  // ADD PANEL
+  // ADD PANEL (solo en sidebar, no en sheet)
   const addPanel=document.createElement('div');addPanel.className='add-panel';
   addPanel.innerHTML=`
-    <div class="add-panel-header" id="${addToggleId}">
+    <div class="add-panel-header" id="add-toggle">
       <span>➕</span><span class="add-panel-title">Agregar nuevos bloques</span>
       <span class="add-arrow">▼</span>
     </div>
-    <div class="add-panel-body" id="${addBodyId}">
+    <div class="add-panel-body" id="add-body">
       <div><div class="input-label">Pega desde Excel o escribe</div>
-      <textarea class="paste-area" id="${pasteId}" placeholder="Bloque	Latitud	Longitud	Localidad	Tipo">${pasteVal}</textarea></div>
+      <textarea class="paste-area" id="paste-area" placeholder="Bloque  Latitud  Longitud Localidad   Tipo"></textarea></div>
       <div class="format-hint"><b>Acepta:</b> pegar directo desde Excel, tabulador o coma</div>
-      <div class="parse-preview" id="parse-preview${idSuffix}"></div>
+      <div class="parse-preview" id="parse-preview"></div>
       <div class="btn-row">
-        <button class="btn btn-secondary" id="btn-parse${idSuffix}">🔍 Previsualizar</button>
-        <button class="btn btn-primary" id="btn-add${idSuffix}">✅ Agregar</button>
+        <button class="btn btn-secondary" id="btn-parse">🔍 Previsualizar</button>
+        <button class="btn btn-primary" id="btn-add">✅ Agregar</button>
       </div>
-      <div class="add-result" id="add-result${idSuffix}"></div>
+      <div class="add-result" id="add-result"></div>
       <div class="btn-row" style="margin-top:4px">
         <button class="btn btn-danger" onclick="resetProgress()">🔄 Reiniciar progreso</button>
       </div>
     </div>`;
   container.appendChild(addPanel);
-  addPanel.querySelector('#'+addToggleId).onclick=()=>{
-    const body=addPanel.querySelector('#'+addBodyId),arrow=addPanel.querySelector('.add-arrow'),header=addPanel.querySelector('.add-panel-header'),o=body.classList.toggle('open');
+  addPanel.querySelector('#add-toggle').onclick=()=>{
+    const body=addPanel.querySelector('#add-body'),arrow=addPanel.querySelector('.add-arrow'),header=addPanel.querySelector('.add-panel-header'),o=body.classList.toggle('open');
     arrow.classList.toggle('open',o);header.classList.toggle('open',o);
   };
-  addPanel.querySelector('#btn-parse'+idSuffix).onclick=()=>previewPasteInto(idSuffix);
-  addPanel.querySelector('#btn-add'+idSuffix).onclick=()=>addParsedBlocksFrom(idSuffix);
+  addPanel.querySelector('#btn-parse').onclick=previewPaste;
+  addPanel.querySelector('#btn-add').onclick=addParsedBlocks;
 
   // ZONE CARDS
   ZONES.forEach(zone=>{
@@ -1180,40 +1175,39 @@ function buildSidebarDOM(container, idSuffix='') {
 }
 
 function renderSidebar(){ buildSidebarDOM(document.getElementById('sidebar')); }
-function renderSidebarInto(container){ buildSidebarDOM(container,'-sheet'); }
+function renderSheetContent(){
+  const sheet=document.getElementById('sheet-content');
+  sheet.innerHTML='';
+  // Solo mostrar las zonas, sin el panel de agregar
+  ZONES.forEach(zone=>{
+    const total=zone.blocks.length,done=zone.blocks.filter(b=>doneSet.has(b.id)).length,allDone=done===total&&total>0;
+    const visibleBlocks=zone.blocks.filter(b=>{const isDone=doneSet.has(b.id);if(currentView==='pending')return!isDone;if(currentView==='done')return isDone;return true;});
+    if(currentView!=='all'&&visibleBlocks.length===0)return;
+    const card=document.createElement('div');card.className=`zone-card${allDone?' all-done':''}`;card.style.borderColor=zone.color+'44';
+    const header=document.createElement('div');header.className='zone-header';
+    header.innerHTML=`<div class="zone-dot" style="background:${allDone?'#43e097':zone.color}"></div><span class="zone-title" style="color:${allDone?'#43e097':zone.color}">${zone.name}</span>${allDone?`<span class="zone-done-badge">✓ Completa</span>`:`<span class="zone-badge" style="background:${zone.colorLight};color:${zone.color}">${done}/${total}</span>`}`;
+    header.onclick=()=>{focusZone(zone.id);closeSheet();};
+    const markAll=document.createElement('button');
+    markAll.style.cssText=`font-size:0.6rem;padding:4px 10px;border-radius:5px;cursor:pointer;border:1px solid;margin-left:4px;font-family:Syne,sans-serif;font-weight:700;border-color:${allDone?'#43e09755':zone.color+'55'};background:${allDone?'#0f3d28':zone.colorLight};color:${allDone?'#43e097':zone.color};`;
+    markAll.textContent=allDone?'↩ Desmarcar':'✓ Zona';
+    markAll.onclick=e=>{e.stopPropagation();markZoneDone(zone.id);};
+    header.appendChild(markAll);
+    const body=document.createElement('div');body.className='zone-body';
+    const hint=document.createElement('div');hint.className='order-hint';hint.textContent='↳ '+zone.tip;body.appendChild(hint);
+    visibleBlocks.forEach(b=>{
+      const isDone=doneSet.has(b.id);
+      const row=document.createElement('div');row.className=`block-row${isDone?' done':''}`;row.style.color=isDone?'#6a7a6a':zone.color;
+      row.innerHTML=`<div class="step-num" style="background:${isDone?'#1a2a1a':zone.colorLight};color:${isDone?'#43e097':zone.color}">${isDone?'✓':b.order}</div><div class="block-info"><div class="block-loc">${b.loc}</div><div class="block-type">${b.type} · ${b.id.slice(-6)}</div></div><div class="block-short">${b.short}</div><div class="block-actions"><button class="action-btn ${isDone?'btn-undone':'btn-done'}" data-id="${b.id}">${isDone?'↩':'✓'}</button><button class="action-btn btn-del" data-del="${b.id}" data-zone="${zone.id}">✕</button></div>`;
+      row.querySelector(`[data-id="${b.id}"]`).onclick=e=>{e.stopPropagation();toggleDone(b.id);};
+      row.querySelector(`[data-del="${b.id}"]`).onclick=e=>{e.stopPropagation();deleteBlock(b.id,zone.id);};
+      row.onclick=()=>{map.setView([b.lat,b.lng],17);markerMap[b.id]?.openPopup();document.querySelectorAll('.block-row').forEach(r=>r.classList.remove('active'));row.classList.add('active');closeSheet();};
+      body.appendChild(row);
+    });
+    card.appendChild(header);card.appendChild(body);sheet.appendChild(card);
+  });
+}
 
-// Paste/add that works for both sidebar and sheet
-function previewPasteInto(suffix=''){
-  const textEl=document.getElementById('paste-area'+suffix)||document.getElementById('paste-area');
-  const text=textEl?.value||'';
-  parsedRows=parsePaste(text);
-  const previewId='parse-preview'+suffix;
-  const preview=document.getElementById(previewId)||document.getElementById('parse-preview');
-  if(!preview) return;
-  preview.innerHTML='';preview.classList.add('show');
-  if(!parsedRows.length){preview.innerHTML=`<div class="preview-row err"><span>⚠️</span><span style="flex:1">Sin datos válidos</span></div>`;return;}
-  parsedRows.forEach(r=>{
-    const row=document.createElement('div');row.className=`preview-row ${r.ok?'ok':'err'}`;
-    if(r.ok){const zN=r.suggestedZone?r.suggestedZone.name.split('·')[0].trim():'🆕 Nueva zona',zC=r.suggestedZone?.color||'#c77dff';row.innerHTML=`<span>✅</span><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${r.id.slice(-8)} · ${r.loc}</span><span class="preview-zone" style="color:${zC}">${zN}</span>`;}
-    else{row.innerHTML=`<span>❌</span><span style="flex:1;color:var(--muted)">${r.msg}</span>`;}
-    preview.appendChild(row);
-  });
-}
-function addParsedBlocksFrom(suffix=''){
-  if(!parsedRows.length){previewPasteInto(suffix);return;}
-  const good=parsedRows.filter(r=>r.ok);
-  if(!good.length){showResult('No hay bloques válidos','error');return;}
-  good.forEach(r=>{
-    let zone=r.suggestedZone;
-    if(!zone){const letter=nextLetter(),dayNum=nextDay(),pal=PALETTE[ZONES.length%PALETTE.length];zone={id:ZONES.length,name:`Zona ${letter} · ${r.loc}`,shortName:`Z${letter}`,color:pal.color,colorLight:pal.light,day:`Día ${dayNum}`,tip:`Zona nueva`,blocks:[]};ZONES.push(zone);}
-    const block={id:r.id,short:nextShort(zone),lat:r.lat,lng:r.lng,loc:r.loc,type:r.type,order:zone.blocks.length+1};
-    zone.blocks.push(block);addMarker(zone,block);
-  });
-  parsedRows=[];
-  const ta=document.getElementById('paste-area'+suffix)||document.getElementById('paste-area');if(ta)ta.value='';
-  const pr=document.getElementById('parse-preview'+suffix)||document.getElementById('parse-preview');if(pr)pr.classList.remove('show');
-  showResult(`✅ ${good.length} bloque(s) agregado(s)`,'success');saveProgress();renderAll();
-}
+function removeMarker(id){if(markerMap[id]){map.removeLayer(markerMap[id]);delete markerMap[id];}}
 
 // ── GPS TRACKING ─────────────────────────────────
 let gpsWatchId = null;
@@ -1253,14 +1247,12 @@ function stopGPS() {
 }
 
 function setGPSBtn(state, icon, text) {
-  // Mobile toolbar button
   const btn = document.getElementById('gps-btn');
   if (btn) {
     btn.className = `toolbar-btn gps-main ${state}`;
     document.getElementById('gps-btn-icon').textContent = icon;
     document.getElementById('gps-btn-text').textContent = text;
   }
-  // Desktop button
   const dBtn = document.getElementById('gps-btn-desk');
   if (dBtn) {
     dBtn.className = `gps-btn ${state}`;
@@ -1269,12 +1261,10 @@ function setGPSBtn(state, icon, text) {
     if (di) di.textContent = icon;
     if (dt) dt.textContent = text;
   }
-  // Show/hide GPS info bar on mobile
   const info = document.getElementById('toolbar-gps-info');
   if (info) info.classList.toggle('show', state !== 'idle');
 }
 
-// ── MAP ROTATION & COMPASS ───────────────────────
 let mapRotation = 0;
 let rotationLocked = false;
 let compassMarker = null;
@@ -1290,7 +1280,6 @@ function rotateMap(deg) {
     c.style.transform = `rotate(${-mapRotation}deg)`;
     c.style.transformOrigin = 'center center';
   });
-  // Update degree display in both desktop and mobile
   const disp = document.getElementById('rotation-display');
   if (disp) disp.textContent = Math.round(mapRotation) + '°';
   const rotDeg = document.getElementById('rot-deg');
@@ -1321,7 +1310,6 @@ function centerOnMe() {
     map.setView([lastLat, lastLng], map.getZoom() < 16 ? 17 : map.getZoom());
     if (gpsMarker) gpsMarker.openPopup();
   } else {
-    // GPS not started yet — start it
     startGPS();
   }
 }
@@ -1334,13 +1322,12 @@ function startCompass() {
     if (rotationLocked) return;
     let heading = null;
     if (typeof e.webkitCompassHeading === 'number') {
-      heading = e.webkitCompassHeading; // iOS
+      heading = e.webkitCompassHeading;
     } else if (e.absolute && e.alpha !== null) {
-      heading = (360 - e.alpha) % 360; // Android absolute
+      heading = (360 - e.alpha) % 360;
     }
     if (heading === null) return;
     rotateMap(heading);
-    // Update arrow marker direction
     if (lastLat !== null) {
       if (compassMarker) { map.removeLayer(compassMarker); compassMarker = null; }
       compassMarker = L.marker([lastLat, lastLng], {
@@ -1353,18 +1340,9 @@ function startCompass() {
       }).addTo(map);
     }
   };
-  // iOS 13+ needs permission
-  if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-    DeviceOrientationEvent.requestPermission().then(state => {
-      if (state === 'granted') {
-        window.addEventListener('deviceorientationabsolute', handler, true);
-        window.addEventListener('deviceorientation', handler, true);
-      }
-    }).catch(() => {});
-  } else {
-    window.addEventListener('deviceorientationabsolute', handler, true);
-    window.addEventListener('deviceorientation', handler, true);
-  }
+  // Solo Android no necesita permiso explícito (a menos que sea iOS)
+  window.addEventListener('deviceorientationabsolute', handler, true);
+  window.addEventListener('deviceorientation', handler, true);
 }
 
 function onGPSSuccess(pos) {
@@ -1376,12 +1354,10 @@ function onGPSSuccess(pos) {
 
   setGPSBtn('tracking', '🔵', 'GPS activo — toca para detener');
 
-  // Update coords display
   document.getElementById('gps-lat').textContent = lat.toFixed(6);
   document.getElementById('gps-lng').textContent = lng.toFixed(6);
   document.getElementById('gps-acc').innerHTML = `Precisión: <b>±${acc} metros</b>${acc > 50 ? ' · señal débil' : acc < 15 ? ' · señal excelente ✓' : ''}`;
 
-  // Draw position dot
   if (gpsMarker) map.removeLayer(gpsMarker);
   if (gpsCircle) map.removeLayer(gpsCircle);
   if (compassMarker) { map.removeLayer(compassMarker); compassMarker = null; }
@@ -1404,13 +1380,9 @@ function onGPSSuccess(pos) {
     }).addTo(map);
   }
 
-  // Center only on first fix
   if (isFirstFix && acc < 500) map.setView([lat,lng], 17);
 
-  // Start compass rotation
   startCompass();
-
-  // Find nearest block
   findNearestBlock(lat, lng);
 }
 
@@ -1439,7 +1411,6 @@ function findNearestBlock(lat, lng) {
     });
   });
   if (!nearest) return;
-  // Desktop GPS panel
   const panel = document.getElementById('gps-nearest');
   if (panel) {
     panel.style.display = 'block';
@@ -1449,7 +1420,6 @@ function findNearestBlock(lat, lng) {
     document.getElementById('gps-near-dist').textContent = `A ${distText} · ${nearest.block.type}`;
     panel.style.borderColor = nearest.zone.color + '55';
   }
-  // Mobile toolbar info bar
   const tn = document.getElementById('toolbar-nearest');
   if (tn) {
     const distM = Math.round(nearest.dist * 1000);
@@ -1459,7 +1429,6 @@ function findNearestBlock(lat, lng) {
   }
 }
 
-// ── MOBILE BOTTOM SHEET ──────────────────────────
 function openSheet() {
   document.getElementById('bottom-sheet').classList.add('open');
   document.getElementById('sheet-backdrop').classList.add('open');
@@ -1469,25 +1438,11 @@ function closeSheet() {
   document.getElementById('bottom-sheet').classList.remove('open');
   document.getElementById('sheet-backdrop').classList.remove('open');
 }
-function renderSheetContent() {
-  // Clone sidebar content into sheet
-  const sidebar = document.getElementById('sidebar');
-  const sheet = document.getElementById('sheet-content');
-  sheet.innerHTML = sidebar.innerHTML;
-  // Re-attach event listeners by re-running render into sheet directly
-  renderSidebarInto(sheet);
-  // Update button label
-  const total = ZONES.reduce((a,z)=>a+z.blocks.length,0);
-  const done = doneSet.size;
-  document.getElementById('sheet-btn-label').textContent = `${done}/${total} bloques`;
-}
 
-// ── NAVIGATION ────────────────────────────────────
 window.addEventListener('offline',()=>document.getElementById('nav-offline').classList.add('show'));
 window.addEventListener('online', ()=>document.getElementById('nav-offline').classList.remove('show'));
 if(!navigator.onLine) document.getElementById('nav-offline').classList.add('show');
 
-// ── SERVICE WORKER REGISTRATION ──────────────────
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js').then(reg => {
@@ -1498,7 +1453,6 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// ── INIT ──────────────────────────────────────────
 loadProgress();
 ZONES.forEach(z=>z.blocks.forEach(b=>addMarker(z,b)));
 buildEstabGrids();
