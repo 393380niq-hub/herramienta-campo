@@ -238,7 +238,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     display:flex;
     position:fixed; bottom:0; left:0; right:0;
     background:var(--surface); border-top:1px solid var(--border);
-    z-index:1000; height:56px; flex-shrink:0;
+    z-index:1200; height:56px; flex-shrink:0;
   }
   .mobile-nav-btn {
     flex:1; display:flex; flex-direction:column; align-items:center;
@@ -288,6 +288,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     top:0; left:0; right:0; bottom:0;
     display:block !important;
     overflow:hidden;
+    z-index:1;  /* Asegura que esté por debajo de la toolbar y del sheet */
   }
   #map { width:100% !important; height:100% !important; flex:none !important; }
 
@@ -298,7 +299,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
     padding:6px 8px;
     display:flex; flex-direction:column; gap:5px;
     position:relative;
-    z-index:200;  /* Asegura que esté por encima del mapa */
+    z-index:1000;  /* Mayor que el mapa, menor que el sheet y la nav */
+    transform:translateZ(0); /* Fuerza contexto de apilamiento */
   }
 
   .toolbar-gps-info {
@@ -331,11 +333,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
   .toolbar-btn.gps-main.tracking { background:var(--blue); color:#0f1117; }
   .toolbar-btn.gps-main.searching { background:var(--yellow-l); color:var(--yellow); border-color:var(--yellow)44; }
 
+  /* Ajustes de paneles flotantes del GPS */
   .gps-panel {
     position:fixed;
     bottom:calc(56px + 70px);
     left:50%; transform:translateX(-50%);
-    z-index:600;
+    z-index:1050; /* Por encima de la barra de herramientas */
     min-width:260px; max-width:90vw;
   }
 
@@ -349,19 +352,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);hei
   .day-badge { font-size:0.46rem; }
   .legend-progress-label { font-size:0.54rem; }
 
-  /* BOTTOM SHEET (solo para lista, sin panel de agregar) */
-  .sheet-toggle-btn { display:none; }
-
+  /* BOTTOM SHEET (tabla de zonas) */
   .sheet-backdrop {
     display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5);
-    z-index:700; backdrop-filter:blur(2px);
+    z-index:1100; backdrop-filter:blur(2px);
   }
   .sheet-backdrop.open { display:block; }
 
   .bottom-sheet {
     position:fixed; left:0; right:0;
     bottom:calc(56px + 62px);
-    z-index:800;
+    z-index:1150; /* Por encima del backdrop y la barra de herramientas */
     background:var(--surface); border-top:1px solid var(--border);
     border-radius:20px 20px 0 0;
     transform:translateY(100%); transition:transform .3s cubic-bezier(.4,0,.2,1);
