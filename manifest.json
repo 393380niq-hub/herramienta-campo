@@ -2,7 +2,7 @@
   "name": "Herramienta de Campo",
   "short_name": "Campo",
   "description": "Rutas de trabajo y matriz de establecimientos",
-  "start_url": "./rutas.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#0f1117",
